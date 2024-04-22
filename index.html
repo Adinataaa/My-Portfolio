@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <style>
+        /* GENERAL */
+
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        p {
+            color: rgb(85, 85, 85);
+        }
+
+        /* TRANSITION */
+
+        a,
+        .btn {
+            transition: all 300ms ease;
+        }
+
+        /* DESKTOP NAV */
+
+        nav,
+        .nav-links {
+            display: flex;
+        }
+
+        nav {
+            justify-content: space-around;
+            align-items: center;
+            height: 17vh;
+        }
+
+        .nav-links {
+            gap: 2rem;
+            list-style: none;
+            font-size: 1.5rem;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+            text-decoration-color: white;
+        }
+
+        a:hover {
+            color: grey;
+            text-decoration: underline;
+            text-underline-offset: 1rem;
+            text-decoration-color: rgb(181, 181, 181);
+        }
+
+        .logo {
+            font-size: 2rem;
+        }
+
+        .logo:hover {
+            cursor: default;
+        }
+
+        /* HAMBURGER MENU */
+
+        #hamburger-nav {
+            display: none;
+        }
+
+        .hamburger-menu {
+            position: relative;
+            display: inline-block;
+            border-radius: 20px;
+        }
+
+        .hamburger-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 24px;
+            width: 30px;
+            cursor: pointer;
+        }
+
+        .hamburger-icon span {
+            width: 100%;
+            height: 2px;
+            background-color: black;
+            transition: all 0.3 ease-in-out;
+        }
+
+        .menu-links {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            width: fit-content;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3 ease-in-out;
+            z-index: 999;
+        }
+
+        .menu-links a {
+            display: block;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.5rem;
+            color: black;
+            text-decoration: none;
+            transition: all 0.3 ease-in-out;
+        }
+
+        .menu-links li {
+            list-style: none;
+        }
+
+        .menu-links.open {
+            max-height: 300px;
+        }
+
+        .hamburger-icon.open span:first-child {
+            transform: rotate(45deg) translate(10px, 5px);
+        }
+
+        .hamburger-icon.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-icon.open span:last-child {
+            transform: rotate(-45deg) translate(10px, -5px);
+        }
+
+        .hamburger-icon span:first-child {
+            transform: none;
+        }
+
+        .hamburger-icon span:first-child {
+            opacity: 1;
+        }
+
+        .hamburger-icon span:first-child {
+            transform: none;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding-top: 4vh;
+            height: 96vh;
+            margin: 0 10rem;
+            box-sizing: border-box;
+            min-height: fit-content;
+        }
+
+        .section-container {
+            display: flex;
+        }
+
+        /* PROFILE SECTION */
+
+        #profile {
+            display: flex;
+            justify-content: center;
+            gap: 5rem;
+            height: 80vh;
+        }
+
+        .section__pic-container {
+            display: flex;
+            height: 400px;
+            width: 400px;
+            margin: auto 0;
+        }
+
+        .section__text {
+            align-self: center;
+            text-align: center;
+        }
+
+        .section__text p {
+            font-weight: 600;
+        }
+
+        .section__text__p1 {
+            text-align: center;
+        }
+
+        .section__text__p2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .title {
+            font-size: 3rem;
+            text-align: center;
+        }
+
+
+        /* ICONS */
+
+        .icon {
+            cursor: pointer;
+            height: 2rem;
+        }
+
+        /* BUTTONS */
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn-gotoprojects {
+            padding-top: 20px;
+        }
+
+        .btn {
+            font-weight: 600;
+            transition: all 300ms ease;
+            padding: 1rem;
+            width: 8rem;
+            border-radius: 2rem;
+        }
+
+        .btn-2 {
+            transition: all 300ms ease;
+            width: 4rem;
+            height: 3rem;
+            border-radius: 2rem;
+        }
+
+        .btn-color-1 {
+            border: rgb(53, 53, 53) 0.1rem solid;
+        }
+
+        .btn-color-1:hover {
+            cursor: pointer;
+        }
+
+        .btn-color-1:hover {
+            background: rgb(53, 53, 53);
+            color: white;
+        }
+
+        .btn-container {
+            gap: 1rem;
+        }
+
+        .btn-cursor {
+            cursor: pointer;
+        }
+
+        /* ABOUT SECTION */
+
+        #about {
+            position: relative;
+        }
+
+
+        .about-details-container {
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .about-details-container {
+            display: flex;
+        }
+
+        .about-pic {
+            border-radius: 2rem;
+        }
+
+        .arrow {
+            position: absolute;
+            right: -5rem;
+            bottom: 2.5rem;
+        }
+
+        .section-container {
+            gap: 4rem;
+            height: 80%;
+        }
+
+        .section__pic-container {
+            height: 400px;
+            width: 400px;
+            margin: auto 0;
+        }
+
+        /* PROJECTS SECTION */
+
+        #projects {
+            position: relative;
+        }
+
+        .title-projects {
+            padding-bottom: 20px;
+        }
+
+        .color-container {
+            border-color: rgb(163, 163, 163);
+            background: rgb(250, 250, 250);
+        }
+
+        .projects-img-title {
+            text-align: center;
+            justify-content: center;
+        }
+
+        .project-img {
+            border-radius: 2rem;
+            width: 80%;
+            height: 80%;
+        }
+
+        .project-title {
+            margin: 1rem;
+            color: black;
+        }
+
+        .project-btn {
+            color: black;
+            border-color: rgb(163, 163, 163);
+        }
+
+        /* CONTACT */
+
+        #contact {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            height: 70vh;
+        }
+
+        .contact-info-upper-container {
+            display: flex;
+            justify-content: center;
+            border-radius: 2rem;
+            border: rgb(53, 53, 53) 0.1rem solid;
+            border-color: rgb(163, 163, 163);
+            background: (250, 250, 250);
+            margin: 2rem auto;
+            padding: 0.5rem;
+        }
+
+        .contact-info-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem;
+        }
+
+        .contact-info-container img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .contact-info-container p {
+            font-size: larger;
+        }
+
+        .contact-icon {
+            cursor: default;
+        }
+
+        .email-icon {
+            height: 2.5rem;
+        }
+
+        /* FOOTER SECTION */
+
+        footer {
+            height: 26vh;
+            margin: 0 1rem;
+        }
+
+        footer p {
+            text-align: center;
+        }
+
+        /* GO TO TOP */
+        .gotop {
+            position: fixed;
+            left: 93%;
+            top: 89%;
+            cursor: pointer;
+        }
+
+        .gotop img {
+            width: 20px;
+            height: 20px;
+            position: fixed;
+            left: 1277px;
+            top: 91%;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 1400px) {
+            #profile {
+                height: 83vh;
+                margin-bottom: 6rem;
+            }
+
+
+            #contact,
+            #projects {
+                height: fit-content;
+            }
+        }
+
+        @media screen and (max-width: 1200px) {
+            #desktop-nav {
+                display: none;
+            }
+
+            #hamburger-nav {
+                display: flex;
+            }
+
+            #experience,
+            .experience-details-container {
+                margin-top: 2rem;
+            }
+
+            #profile,
+            .section-container {
+                display: block;
+            }
+
+            .arrow {
+                display: none;
+            }
+
+            section,
+            .section-container {
+                height: fit-content;
+            }
+
+            section {
+                margin: 0 5%;
+            }
+
+            .section__pic-container {
+                width: 275px;
+                height: 275px;
+                margin: 0 auto 2rem;
+            }
+
+        }
+
+        @media screen and (max-width: 600px) {
+
+            #contact,
+            footer {
+                height: 40vh;
+            }
+
+            #profile {
+                height: 83vh;
+                margin-bottom: 0;
+            }
+
+            article {
+                font-size: 1rem;
+            }
+
+            footer nav {
+                height: fit-content;
+                margin-bottom: 2rem;
+            }
+
+            .contact-info-upper-container,
+            .btn-container {
+                flex-wrap: wrap;
+            }
+
+            .contact-info-container {
+                margin: 0;
+            }
+
+            .contact-info-container p,
+            .nav-links li a {
+                font-size: 1rem;
+            }
+
+            .experience-sub-title {
+                font-size: 1.25rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .section__pic-container {
+                width: auto;
+                height: 46vw;
+                justify-content: center;
+            }
+
+            .section__text__p2 {
+                font-size: 1.25rem;
+            }
+
+            .title {
+                font-size: 2rem;
+            }
+
+            .text-container {
+                text-align: justify;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gotop {
+                position: fixed;
+                left: 83%;
+                top: 90%;
+            }
+
+            .gotop img {
+                width: 20px;
+                height: 20px;
+                position: fixed;
+                left: 88%;
+                top: 92%;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .gotop {
+                position: fixed;
+                left: 81%;
+                top: 90%;
+            }
+
+            .gotop img {
+                width: 20px;
+                height: 20px;
+                position: fixed;
+                left: 87%;
+                top: 92%;
+            }
+        }
+
+        @media (max-width: 330px) {
+            .gotop {
+                position: fixed;
+                left: 78%;
+                top: 90%;
+            }
+
+            .gotop img {
+                width: 20px;
+                height: 20px;
+                position: fixed;
+                left: 85%;
+                top: 92%;
+            }
+        }
+
+        @keyframes moveUpDown {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+                /* Ubah sesuai dengan jarak vertikal yang diinginkan */
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .move-up-down {
+            animation: moveUpDown 2s ease-in-out infinite;
+            /* Ubah 2s sesuai dengan durasi animasi yang diinginkan */
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="desktop-nav">
+        <div class="logo">Adinata</div>
+        <div>
+            <ul class="nav-links">
+                <li><a href="#profile" onclick="toggleMenu()">Profile</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <nav id="hamburger-nav">
+        <div class="logo">Adinata</div>
+        <div class="hamburger-menu">
+            <div class="hamburger-icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="menu-links">
+                <li><a href="#profile" onclick="toggleMenu()">Profile</a></li>
+                <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+            </div>
+        </div>
+    </nav>
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector(".menu-links");
+            const icon = document.querySelector(".hamburger-icon");
+            menu.classList.toggle("open");
+            icon.classList.toggle("open");
+        }
+    </script>
+    <section id="profile">
+        <div class="section__pic-container">
+            <img src="https://cdn-icons-png.freepik.com/512/306/306818.png?uid=R145665474&ga=GA1.1.1670361728.1713494036"
+                alt="Adinata profile picture" class="move-up-down" />
+        </div>
+        <div class="section__text">
+            <p class="section__text__p1">Hello, I'm</p>
+            <h1 class="title">ADINATA</h1>
+            <p class="section__text__p2">Frontend Developer</p>
+            <div class="btn-container">
+                <button class="btn btn-color-2 project-btn btn-cursor"
+                    onclick="window.open('https://wa.me/6281262332537', '_blank')">
+                    Contact Me
+                </button>
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <p class="section__text__p1">Get To Know More</p>
+        <h1 class="title">About Me</h1>
+        <div class="section-container">
+            <div class="section__pic-container">
+                <img src="https://cdn-icons-png.freepik.com/512/306/306818.png?uid=R145665474&ga=GA1.1.1670361728.1713494036"
+                    alt="Profile picture" class="about-pic" />
+            </div>
+            <div class="about-details-container">
+                <div class="text-container">
+                    <p>
+                        Hello! My name is Adinata. I study at your son's vocational school. I have a great interest in
+                        the world of technology, especially in web and application development. I have taken courses to
+                        improve my skills in this area. I believe that with dedication and hard work, I can become a
+                        reliable frontend developer. That's all, thank you!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <img src="https://cdn-icons-png.freepik.com/512/2985/2985149.png?uid=R145665474&ga=GA1.1.1670361728.1713494036"
+            alt="Arrow icon" class="icon arrow" onclick="location.href='./#experience'" />
+    </section>
+    <section id="projects">
+        <div class="title-projects">
+            <h1 class="title">My first projects</h1>
+        </div>
+        <div class="experience-details-container">
+            <div class="projects-img-title">
+                <img src="https://img.freepik.com/free-photo/flat-lay-desk-concept-with-smartphone-template_23-2148111335.jpg?t=st=1713621737~exp=1713625337~hmac=b47bcb2d530c21c3791e919827556efb9e553a1ee00ed31726293979a23c4ad7&w=2000"
+                    alt="Project 1" class="project-img" />
+            </div>
+            <div class="btn-container">
+                <div class="btn-gotoprojects">
+                    <button class="btn btn-color-2 project-btn btn-cursor"
+                        onclick="location.href='https://adinataaa.github.io/Tugas-akhir/'">
+                        Go to projects
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        <img src="https://cdn-icons-png.freepik.com/512/2985/2985149.png?uid=R145665474&ga=GA1.1.1670361728.1713494036"
+            alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
+    </section>
+    <section id="contact">
+        <h1 class="title">Contact Me</h1>
+        <div class="contact-info-upper-container">
+            <div class="contact-info-container">
+                <img src="https://cdn-icons-png.freepik.com/512/2111/2111774.png?uid=R145665474&ga=GA1.1.1670361728.1713494036"
+                    alt="Whatsapp icon" />
+                <p><a href="https://wa.me/6281262332537">Whatsapp </a></p>
+                <img src="https://cdn-icons-png.freepik.com/512/3046/3046125.png?uid=R145665474&ga=GA1.1.1670361728.1713494036"
+                    alt="tiktok icon" />
+                <p><a href="https://tiktok.com/@x.seveeen">Tiktok </a></p>
+                <img src="https://cdn-icons-png.freepik.com/512/1077/1077042.png?uid=R145665474&ga=GA1.1.1670361728.1713494036"
+                    alt="tiktok icon" />
+                <p><a href="https://www.instagram.com/adinata_36?igsh=MWltNnc4ZWR4bDM2Mw==">Instagram</a></p>
+            </div>
+        </div>
+        </div>
+    </section>
+    <footer>
+        <nav>
+            <div class="nav-links-container">
+                <ul class="nav-links">
+                    <li><a href="#profile">Profile</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <p>&copy; All Right Reserved | Adinata</p>
+    </footer>
+    <script src="script.js"></script>
+    <a class="gotop" href="#desktop-nav"><button class="btn-2 btn-color-2 project-btn"><img
+                src="https://cdn-icons-png.freepik.com/512/7268/7268561.png?uid=R145665474&ga=GA1.1.1670361728.1713494036"
+                alt="up arrow"></button></a>
+</body>
+
+</html>
