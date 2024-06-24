@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Portfolio</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         /* GENERAL */
 
@@ -653,15 +654,17 @@
         </div>
     </section>
     <section id="about">
-        <p class="section_text_p1">Get To Know More</p>
-        <h1 class="title">About Me</h1>
+        <div data-aos="fade-up">
+            <p class="section_text_p1">Get To Know More</p>
+            <h1 class="title">About Me</h1>
+        </div>
         <div class="section-container">
-            <div class="section__pic-container">
+            <div class="section__pic-container" data-aos="fade-right">
                 <img src="https://cdn-icons-png.freepik.com/512/306/306818.png?uid=R145665474&ga=GA1.1.1670361728.1713494036"
                     alt="Profile picture" class="about-pic" />
             </div>
             <div class="about-details-container">
-                <div class="text-container">
+                <div class="text-container" data-aos="fade-left">
                     <p>
                         Hello! My name is Adinata. I study at your son's vocational school. I have a great interest in
                         the world of technology, especially in web and application development. I have taken courses to
@@ -675,7 +678,7 @@
             alt="Arrow icon" class="icon arrow" onclick="location.href='./#experience'" />
     </section>
     <section id="projects">
-        <div class="title-projects">
+        <div class="title-projects" data-aos="fade-up">
             <h1 class="title">My first projects</h1>
         </div>
         <div class="experience-details-container">
@@ -697,7 +700,7 @@
             alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
     </section>
     <section id="contact">
-        <h1 class="title">Contact Me</h1>
+        <h1 class="title" data-aos="fade-up">Contact Me</h1>
         <div class="contact-info-upper-container">
             <div class="contact-info-container">
                 <img src="https://cdn-icons-png.freepik.com/512/2111/2111774.png?uid=R145665474&ga=GA1.1.1670361728.1713494036"
@@ -759,6 +762,10 @@
     <a class="gotop" href="#desktop-nav"><button class="btn-2 btn-color-2 project-btn"><img
                 src="https://cdn-icons-png.freepik.com/512/7268/7268561.png?uid=R145665474&ga=GA1.1.1670361728.1713494036"
                 alt="up arrow"></button></a>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
